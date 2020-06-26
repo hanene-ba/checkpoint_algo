@@ -1,0 +1,43 @@
+ALGORITHM TestChaine
+VAR
+    ch : string; 
+    long : INTEGER := 1; 
+    sum_word : INTEGER := 0; 
+    i : INTEGER; 
+    sum_voy : INTEGER := 0; 
+
+
+// calcul du longeur 
+
+BEGIN 
+  Write("merci de saisir une chaine");
+  Read(ch);
+  IF (ch = '') THEN
+  long := 0; 
+  ELSE
+    REPEAT
+      long := long + 1;
+    UNTIL (ch[long] ='.');
+  END_IF
+  
+  Write("la longeur de la chaine est ", long )
+
+
+// calcul des mots
+
+  FOR i FROM 1 TO long STEP 1  DO
+      IF (ch[i] = ' ') THEN
+          sum_word := sum_word + 1; 
+      END_IF
+  END_FOR
+  Write ( "cette phrase contient",sum_word + 1 ,"mots");
+
+// calcul des voyelles 
+
+  FOR i FROM 1 TO long STEP 1  DO
+      IF ((ch[i]) in ['a','A','O','o','u','U','i','I','e','E','y','Y']) THEN
+          sum_voy := sum_voy + 1
+      END_IF
+  END_FOR
+  Write("nombre de voyelles est ", sum_voy);
+END
